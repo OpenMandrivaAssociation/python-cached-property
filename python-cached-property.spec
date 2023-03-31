@@ -2,7 +2,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.5.1
-Release:        %mkrel 1
+Release:        2
 Summary:        A decorator for caching properties in classes
 
 License:        MIT
