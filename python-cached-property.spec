@@ -2,7 +2,7 @@
 
 Name:		python-%{pypi_name}
 Version:	1.5.1
-Release:	3
+Release:	4
 Summary:	A decorator for caching properties in classes
 Group:		Development/Python
 License:	MIT
