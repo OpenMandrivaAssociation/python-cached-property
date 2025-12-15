@@ -1,29 +1,38 @@
-%global pypi_name cached-property
+%define module cached_property
 
-Name:		python-%{pypi_name}
-Version:	1.5.1
-Release:	4
+Name:		python-cached-property
+Version:	2.0.1
+Release:	1
 Summary:	A decorator for caching properties in classes
 Group:		Development/Python
-License:	MIT
+License:	BSD-2-Clause
 URL:		https://pypi.org/project/cached-property
-Source0:	http://pypi.python.org/packages/source/c/%{pypi_name}/%{pypi_name}-%version.tar.gz
-BuildArch:	noarch
+Source0:	https://files.pythonhosted.org/packages/source/c/%{module}/%{module}-%version.tar.gz#/%{name}-%{version}.tar.gz
+BuildSystem:	python
+BuildArch:		noarch
+
+BuildRequires:	pkgconfig
 BuildRequires:	pkgconfig(python)
-BuildRequires:	python-setuptools
+BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	python%{pyver}dist(wheel)
 
 %description
 A decorator for caching properties in classes.
 
 %prep
-%autosetup -p1 -n %{pypi_name}-%{version}
+%autosetup -n %{module}-%{version} -p1
+# Remove bundled egg-info
+rm -rf %{module}.egg-info
 
 %build
-%py3_build
+%py_build
 
 %install
-%py3_install
+%py_install
 
-%files -n python-%{pypi_name}
-%doc README.rst AUTHORS.rst CONTRIBUTING.rst HISTORY.rst LICENSE
-%{python_sitelib}/cached_property*
+%files
+%doc README.md
+%license LICENSE
+%{python_sitelib}/%{module}.py
+%{python_sitelib}/%{module}-%{version}*.*-info
