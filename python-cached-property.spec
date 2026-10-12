@@ -2,7 +2,7 @@
 
 Name:		python-cached-property
 Version:	2.0.1
-Release:	1
+Release:	2
 Summary:	A decorator for caching properties in classes
 Group:		Development/Python
 License:	BSD-2-Clause
